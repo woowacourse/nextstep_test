@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    {{#block "header"}}
+        {{> pages/header }}
+    {{/block}}
+</head>
+<body>
+<div class="app">
+    {{#block "nav"}}
+    <div v-cloak id="header-container" class="header navbar">
+        <div class="header-container">
+            <ul class="nav-right">
+                {{^loginUser}}
+                <li class="user-profile">
+                    <a href="/login/github">
+                        <div class="user-info login-btn pointer">
+                            <span class="name pdd-right-5">Login</span>
+                        </div>
+                    </a>
+                </li>
+                {{/loginUser}}
+
+                {{#loginUser}}
+                <li id="header-user-dropdown-btn" class="user-profile dropdown pointer" data-id="{{id}}" data-userId="{{userId}}">
+                    <a class="user-info-link user-dropdown-menu dropdown-toggle" data-toggle="dropdown">
+                        <img class="profile-img img-fluid" src="{{avatarUrl}}" alt="">
+                        <div class="user-info">
+                            <span class="name pdd-right-5">{{name}}</span>
+                            <i class="ti-angle-down font-size-10"></i>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/u/{{userId}}">
+                                <i class="ti-user pdd-right-10"></i>
+                                <span>마이 페이지</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/u/{{userId}}/sessions/learning">
+                                <i class="ti-book pdd-right-10"></i>
+                                <span>수강중인 강의</span>
+                            </a>
+                        </li>
+                        {{#reviewer}}
+                        <li>
+                            <a href="/u/{{userId}}/review">
+                                <i class="ti-github pdd-right-10"></i>
+                                <span>리뷰관리</span>
+                            </a>
+                        </li>
+                        {{/reviewer}}
+                        {{^instructor}} {{^reviewer}}
+                            <li>
+                                <a href="/u/{{userId}}/missions">
+                                    <i class="ti-flag-alt-2 pdd-right-10"></i>
+                                    <span>나의 미션</span>
+                                </a>
+                            </li>
+                        {{/reviewer}} {{/instructor}}
+                        {{#instructor}}
+                        <li>
+                            <a href="/u/{{userId}}/courses">
+                                <i class="ti-settings pdd-right-10"></i>
+                                <span>내 코스관리</span>
+                            </a>
+                        </li>
+                        {{/instructor}}
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a href="/logout">
+                                <i class="ti-power-off pdd-right-10"></i>
+                                <span>로그아웃</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {{/loginUser}}
+
+                <li>
+                    <a href="/">
+                        <i class="ti-home"></i>
+                    </a>
+                </li>
+                <li>
+                    <a @click="fullScreen()" class="full-screen-btn pointer">
+                        <i class="ti-fullscreen"></i>
+                    </a>
+                </li>
+                <li id="session-slack-btn" class="d-none">
+                    <a class="pointer" href="/" target="_blank">
+                        <i class="fa fa-slack text-white bg-gray padding-5 border-radius-6 font-size-13 relative bottom-3"></i>
+                    </a>
+                </li>
+                <li id="request-review-btn" class="d-none">
+                    <a @click="$root.$emit('activateRequestReview', $event)" class="pointer text-gray">
+                        <i class="ti-github"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <side-panel :show-snackbar="showSnackbar" :snackbar-msgs="snackbarMsgs"></side-panel>
+    </div>
+    {{/block}}
+    <div class="page-container pdd-top-65">
+    {{#block "content"}}{{/block}}
+    </div>
+</div>
+
+{{#block "footer"}}
+    {{> pages/footer }}
+{{/block}}
+
+{{#block "script"}}
+<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/screenfull.js/3.3.3/screenfull.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js"></script>
+<script src="//unpkg.com/popper.js/dist/umd/popper.min.js"></script>
+<script src="//stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
+<script src="{{staticUrls '/js/common.js'}}"></script>
+<script type="text/x-template" id="side-panel-template">
+    <div class="side-panel">
+        <div class="side-panel-wrapper bg-white">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#mission" role="tab" data-toggle="tab">
+                        <span>미션</span>
+                    </a>
+                </li>
+                <li class="panel-close">
+                    <a @click="sidePanelToggle($event)" class="side-panel-toggle pointer">
+                        <i class="ti-close"></i>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="mission" role="tabpanel" class="tab-pane fade in active">
+                    <div class="mission">
+                        <div class="mission-user-list scrollable">
+                            <div class="mission-section">
+                                <h5 class="mission-title text-bold">진행중인 미션</h5>
+                                <a v-for="lecture in myMissionLectures" @click="requestReview(lecture)" class="mission-user pointer">
+                                    <div class="user-info">
+                                        <span class="user-name pdd-top-5">${lecture.title}</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<script>
+    Vue.component('side-panel', {
+        props: ['showSnackbar', 'snackbarMsgs'],
+        delimiters: ['${', '}'],
+        template: '#side-panel-template',
+        mounted () {
+            {{#loginUser}}
+            this.getMissionLectures()
+            this.initEventListner()
+            {{/loginUser}}
+        },
+        methods: {
+            initEventListner() {
+                this.$root.$on('activateRequestReview', event => {this.activateRequestReview(event)})
+            },
+            activateRequestReview(event) {
+                const length = this.myMissionLectures.length
+                length === 1 ? this.requestReview(this.myMissionLectures[0]) : ''
+                length > 1 ? this.sidePanelToggle(event) : ''
+            },
+            initRequestReviewBtnInit() {
+                if(this.myMissionLectures.length >= 1) {
+                    $('#request-review-btn a').removeClass('text-gray').addClass('text-dark')
+                }
+            },
+            sidePanelToggle(event) {
+                event.preventDefault()
+                $('.side-panel').toggleClass("side-panel-open")
+            },
+            getMissionLectures() {
+                axios.get(`/api/lectures/`).then(response => {
+                    this.myMissionLectures = response.data
+                    this.initRequestReviewBtnInit()
+                }).catch(error => {
+                    this.showSnackbar(this.snackbarMsgs.commonFailMsg)
+                })
+            },
+            requestReview(lecture) {
+                const requestView = {
+                    sessionId: $('#request-review-btn').data('session'),
+                    lectureId: lecture.id
+                }
+                axios.post(`/api/lectures/${requestView.lectureId}/reviews`, requestView).then(response => {
+                    this.showSnackbar(this.snackbarMsgs.requestReviewSuccessMsg)
+                }).catch(error => {
+                    this.showSnackbar(error.response.data)})
+            }
+        },
+        data () {
+            return {
+                myMissionLectures: []
+            }
+        }
+    })
+
+    const requestReview = new Vue({
+        el: '#header-container',
+        delimiters: ['${', '}'],
+        methods: {
+            fullScreen() {
+                if (screenfull.enabled) {
+                    screenfull.toggle()
+                }
+            },
+            showSnackbar(text) {
+                Snackbar.show({ text: text, pos: 'bottom-center', showAction: false, duration: 2000 })
+            }
+        },
+        data () {
+            return {
+                snackbarMsgs: {
+                    requestReviewSuccessMsg: '리뷰를 요청하였습니다',
+                    commonFailMsg: '오류가 발생하였습니다'
+                }
+            }
+        }
+    })
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128075950-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-128075950-1');
+</script>
+{{/block}}
+
+{{#block "template"}}
+{{/block}}
+</body>
+</html>
