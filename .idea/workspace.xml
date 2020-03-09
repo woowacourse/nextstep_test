@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$USER_HOME$/Downloads/spring-session-2.1.7.RELEASE" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../atdd" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../bbd-http-web" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../building-modular-monoliths-using-spring" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../ddd-kitchenpos" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../jwp-blog" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../jwp-spring-boot" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../miniprojects-2019" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../nextstep" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../playground/2019-Java-Thread" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../playground/fdl" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../playground/jwp-framework" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../playground/jwp-was" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../temp/java-bowling" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/cc-java/atdd/atdd-path" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/cc-java/atdd/atdd-subway-favorite" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/cc-java/atdd/atdd-subway-path" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/cc-java/atdd/atdd-subway-time" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/cc-java/five/java-bowling" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/cc-java/five/java-lotto" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/cc-java/five/java-racingcar" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/cc-java/java-ladder" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/cc-java/jwp-1/jwp-aop" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/cc-java/jwp-1/jwp-di" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/cc-java/jwp-1/jwp-framework" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/cc-java/jwp-1/jwp-jdbc" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/cc-java/jwp-1/jwp-spring-boot" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/cc-java/jwp-1/jwp-was" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/cc-java/nextstep" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/cc-java/techlearnning/ddd-kitchenpos" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/cc-java/techlearnning/ddd-strategic-design" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/java-practice" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/javacafe/2019-Java-Thread" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/nextstep" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/techcourse/cs/java-study" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/techcourse/java-chess" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/techcourse/java-racingcar-precourse" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/techcourse/level2/jwp-blog" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/techcourse/level3/jwp-jdbc" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/techcourse/level3/jwp-mvc" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/techcourse/level3/jwp-spring-boot" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/techcourse/level3/jwp-was" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/techcourse/precourse/java-baseball-precourse" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/techcourse/precourse/java-blackjack-precourse" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/techcourse/precourse/java-chicken-2019" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../../office/techcourse/precourse/java-racingcar-precourse" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1680" />
+    <option name="height" value="935" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
